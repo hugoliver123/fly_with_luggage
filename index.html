@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Navigation</title>
+	<style type="text/css">
+		p{
+			font-size: 70px;
+		}
+		h1{
+			font-family: dancingScript;
+			font-size: 100px;
+			color: aqua;
+		}
+		.blur {	
+    			filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    			-webkit-filter: blur(5px); /* Chrome, Opera */
+       			-moz-filter: blur(5px);
+       			-ms-filter: blur(5px);    
+            		filter: blur(5px);
+    			filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=5, MakeShadow=false); /* IE6~IE9 */
+		}
+		.hvcenter{
+			position: absolute;
+			top: 15%;
+			left: 10%;
+		}
+		.lan{
+			font-size: 30px;
+			color: lightgreen;
+		}
+		a:link{color:lightgreen;}
+		a:visited{color:lightgreen;}
+	</style>
+	<script type="text/javascript">
+		window.onload=CurrentTime;
+		function CurrentTime(){ 
+	        	var now = new Date();
+		        var year = now.getFullYear();       //年
+		        var month = now.getMonth() + 1;     //月
+		        var day = now.getDate();            //日
+		        var hh = now.getHours();            //时
+		        var mm = now.getMinutes();          //分
+		       
+		        var clock = year + " - ";
+		        if(month < 10)
+		        	clock += "0";
+		        clock += month + " - ";
+		        if(day < 10)
+		            	clock += "0";
+		        clock += day + "&nbsp;&nbsp;&nbsp;";
+		        if(hh < 10)
+		            	clock += "0";
+		        clock += hh + " : ";
+		        if (mm < 10) 
+		        	clock += '0'; 
+		        clock += mm; 
+		        document.getElementById("time").innerHTML=clock;
+		        if(hh>=6&&hh<=11){
+		        	document.getElementById("sayhi").innerHTML="Good morning, welcome to:";
+		        	document.getElementById("myimg").src="img/morning.jpg";
+		        }
+		        else if(hh>=12&&hh<=14){
+		        	document.getElementById("sayhi").innerHTML="Good noon, welcome to:";
+		        	document.getElementById("myimg").src="img/morning.jpg";
+		        }
+		        else if(hh>=14&&hh<=18){
+		        	document.getElementById("sayhi").innerHTML="Good afternoon, welcome to:";
+		        	document.getElementById("myimg").src="img/morning.jpg";
+		        }
+		        else{
+		        	document.getElementById("sayhi").innerHTML="Good evening, welcome to:";
+		        	document.getElementById("myimg").src="img/morning.jpg";
+		        }
+		} 
+	</script>
+</head>
+<body>
+	<div id="bg_pic" style="position:absolute; width:100%; height:100%; z-index:-1">
+		<img id="myimg" src="img/morning.jpg" alt="backgroundpicture"  class="blur" width="100%" height="100%">
+	</div>
+	<div id="" style="width:1000px; height:500px;  text-align:center" class="hvcenter" >
+			<p id="sayhi"></p>
+			<img src="img/logo.png" height="215" width="645"/>
+			<table align="center">
+				<tr>
+					<th colspan="3" class="lan">Please choose your favorite language:</td>
+				</tr>
+				<tr>
+					<td class="lan"><a href="Home/english_home.html">English</a></td>
+					<td class="lan"><a href="Home/fr_new.html">français</a></td>
+					<td class="lan"><a href="Home/es_home.html">Español</a></td>
+				</tr>
+				<tr>
+					<td class="lan"><a href="Home/ar_home.html">عربى</a></td>
+					<td class="lan"><a href="Home/cn_home.html">简体中文</a></td>
+					<td class="lan"><a href="Home/tw_home.html">正體中文</a></td>
+				</tr>
+				<tr>
+					<td colspan="3" class="lan"><span id="time"></span></td>
+				</tr>
+			</table>
+	</div>
+</body>
+</html>
